@@ -48,7 +48,7 @@ def merge_txt_files(original_file, new_file):
 
     print(f"File '{GREEN}{original_file}{RESET}' was updated.") 
     print(f"Total lines: {GREEN}{after_count}{RESET}.") 
-    print(f"Added lines:{GREEN}{added_count}{RESET}. Removed lines: {GREEN}{removed_count}{RESET}.")
+    print(f"Added lines: {GREEN}{added_count}{RESET}. Removed lines: {GREEN}{removed_count}{RESET}.")
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
