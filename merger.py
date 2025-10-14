@@ -20,13 +20,20 @@ def merge_txt_files(original_file, new_file):
     with open(new_path, "r", encoding="utf-8") as f:
         new_lines = set(line.strip() for line in f if line.strip())
 
+    # counting total, added and removed lines
+    before_count = len(original_lines)
     merged = original_lines.union(new_lines)
+    after_count = len(merged)
+
+    added_count = len(merged - original_lines)
+    removed_count = len(original_lines - merged)
 
     # Saving back to the original file
     with open(orig_path, "w", encoding="utf-8") as f:
         f.write("\n".join(sorted(merged)))
 
-    print(f"File '{original_file}' was updated. Total lines: {len(merged)}")
+    print(f"File '{original_file}' was updated.") 
+    print(f"Total lines: {after_count}. Added lines:{added_count}. Removed lines: {removed_count}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
